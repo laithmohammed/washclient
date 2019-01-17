@@ -21,6 +21,9 @@ class Startup extends React.Component {
     this.state = {
     }
   }
+  componentWillMount(){
+    localStorage.clear();
+  }
   render() {
     return (
       <BodyBackground context={

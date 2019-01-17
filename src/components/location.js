@@ -231,7 +231,6 @@ class GeoLocation extends React.Component {
             }
         }
         document.body.appendChild(form);
-        localStorage.clear();
         form.submit();
       }else{
         alert('please check laundry name is not valid !!')

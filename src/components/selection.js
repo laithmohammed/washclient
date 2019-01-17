@@ -78,8 +78,27 @@ class Selection extends React.Component {
       ]
     }
   }
+  componentWillMount(){
+    this.getLocalStorage();
+  }
   componentDidMount(){
     this.slidingTest();
+  }
+  getLocalStorage(){
+    let clothes = localStorage.getItem('clothes') || '[]';
+    clothes = JSON.parse(clothes);
+    let data  = this.state.orderData;
+    data.map((items,i)=>{
+      clothes.map((cloth,i)=>{
+        if(items.data.Name.indexOf(cloth.itemName) > -1){
+          let index = items.data.Name.indexOf(cloth.itemName);
+          data.data.Quantity[index] = cloth.itemQuan;
+        }
+        return ' '
+      })
+      return ' '
+    })
+    this.setState({orderData : data})
   }
   sliding(e){
       let state = e.target.title;
