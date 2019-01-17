@@ -15,7 +15,7 @@ let SliderDiv   = Styled.div  `font-family: 'Noto Sans', sans-serif;font-size:1.
                                 transition: width 2s, padding 2s;overflow:hidden;-webkit-transition: width 2s, padding 2s;`;
 let SliderText  = Styled.div  `width:60vw;overflow:hidden;max-width:20em;`
 let Container   = Styled.div  `position:absolute;width:100%;height:100%;top:0px;left:0px;`
-let Section     = Styled.div  `width:100%;max-width:1000px;background-color:rgba(255,255,255,0.9);margin-bottom:6em;`;
+let Section     = Styled.div  `width:100%;max-width:1000px;background-color:rgba(255,255,255,0.9);margin-bottom:10em;`;
 let Header      = Styled.div  `width:auto;padding:0.4em 1.5em;text-align:left;display:flex;border-bottom:2px solid #13a892;
                                 align-items:center;justify-content:space-between;cursor:pointer;`
 let HeaderText  = Styled.span `font-family: 'Signika', sans-serif;font-size:1.6em;color:#13a892;`
@@ -83,6 +83,7 @@ class Selection extends React.Component {
   }
   componentDidMount(){
     this.slidingTest();
+    this.calcPrice();
   }
   getLocalStorage(){
     let clothes = localStorage.getItem('clothes') || '[]';

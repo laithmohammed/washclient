@@ -281,7 +281,8 @@ class GeoLocation extends React.Component {
 						bootstrapURLKeys={{ key: 'AIzaSyCX1_2Dlr5a_GRbjCgwGup1EDb3jqVeOfc' }}
             defaultCenter={{lat : 33.328109407837836,lng : 44.40894791680262}}
             center={{lat : this.state.loclat,lng : this.state.loclng}}
-						defaultZoom={this.state.zoom}
+            defaultZoom={this.state.zoom}
+            zoom={this.state.zoom}
 						onClick={({x, y, lat, lng, event})=>this.setGeoLocation(x, y, lat, lng, event)}
 					>
 						{this.mapdata()}
