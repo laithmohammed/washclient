@@ -25,8 +25,8 @@ class Dashboard extends React.Component {
       return (
         <React.Fragment>
           <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
-            <img src={require('../../assets/icons/dashboard.svg')} alt='loader' style={{width:'4em',height:'4em'}} />
-            <span style={{color:'white',fontSize:'30px',padding:'10px'}}>we suggest to open this page with laptop or desktop devices</span>
+            <img src={require('../../assets/icons/dashboard.svg')} alt='loader' style={{width:'8em',height:'8em'}} /><br/>
+            <span style={{color:'white',fontSize:'20px',padding:'10px'}}>we suggest to open this page with laptop or desktop devices</span>
           </div>
         </React.Fragment>
       )
