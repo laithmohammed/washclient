@@ -16,7 +16,37 @@ class Dashboard extends React.Component {
   constructor(){
     super();
     this.state = {
-      body : <Orders />
+      body : <Orders />,
+      html : <div></div>
+    }
+  }
+  uiData(){
+    if(window.innerWidth < 1400){
+      return (
+        <React.Fragment>
+          <div style={{position:'absolute',top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
+            <img src={require('./assets/icons/loader.svg')} alt='loader' style={{width:'4em',height:'4em'}} />
+            <span style={{color:'white',fontSize:'30px',padding:'10px'}}>we suggest to open this page with laptop or desktop devices</span>
+          </div>
+        </React.Fragment>
+      )
+    }else {
+      return (
+        <React.Fragment>
+          <MenuBar 
+            updateCustomersFun={this.updateBodyCon.bind(this,'laundries')}
+            updateOrdersFun={this.updateBodyCon.bind(this,'orders')}
+            updateServiceFun={this.updateBodyCon.bind(this,'service')}
+            updateReportsFun={this.updateBodyCon.bind(this,'reports')}
+            updateSettingsFun={this.updateBodyCon.bind(this,'settings')}
+            updateAddCustomerFun={this.updateBodyCon.bind(this,'addcustomer')}
+          
+          />
+          <BodyCon>
+            {this.state.body}
+          </BodyCon>
+        </React.Fragment>
+      )
     }
   }
   updateBodyCon(str,e){
@@ -30,18 +60,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <Container>
-        <MenuBar 
-          updateCustomersFun={this.updateBodyCon.bind(this,'laundries')}
-          updateOrdersFun={this.updateBodyCon.bind(this,'orders')}
-          updateServiceFun={this.updateBodyCon.bind(this,'service')}
-          updateReportsFun={this.updateBodyCon.bind(this,'reports')}
-          updateSettingsFun={this.updateBodyCon.bind(this,'settings')}
-          updateAddCustomerFun={this.updateBodyCon.bind(this,'addcustomer')}
-        
-        />
-        <BodyCon>
-          {this.state.body}
-        </BodyCon>
+        {this.uiData()}
       </Container>
     );
   }

@@ -15,14 +15,14 @@ class MenuBar extends React.Component {
     super();
     this.state = {
       Icon : [],
-      set  : [<Icon src={require('../assets/icons/logouthold.svg')} alt='log out' onClick={e=>this.logOut(e)}/>]
+      set  : [<Icon src={require('../assets/icons/dashboard.svg')} alt='dashboard' onClick={e=>this.dashBoard(e)}/>,<Icon src={require('../assets/icons/logouthold.svg')} alt='log out' onClick={e=>this.logOut(e)}/>]
     }
   }
   componentDidMount(){
     Fun.onMove(document.getElementById('MenuBottun'));
     fetch(`${Params.originServer}/checkPermit/${Fun.getCookie('X-auth-token')}`)
     .then(res => res.json()).then(data=>{
-      if (data.authorized === "valid token") { this.setState({ Icon : [this.state.set[0]] }); }
+      if (data.authorized === "valid token") { this.setState({ Icon : this.state.set }); }
       else { this.setState({ Icon : [] }); }
     })
     .catch(err => { this.setState({ Icon : [] }); });
@@ -46,6 +46,9 @@ class MenuBar extends React.Component {
           window.location.reload();
         }
       })
+  }
+  dashBoard(){
+    window.location = `${Params.originApp}/dashboard`
   }
   render() {
     return (
