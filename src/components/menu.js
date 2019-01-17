@@ -7,7 +7,7 @@ let Container = Styled.div `position:fixed;top:0;left:-4em;width:3em;height:100%
                             display:flex;align-items:center;justify-content:flex-start;flex-direction: column;transition: left 0.25s;
                             -webkit-transition: left 0.25s;`;
 let Icon      = Styled.img `width:100%;`
-let MenuButton= Styled.div `position:fixed;top:80%;margin-left:3.6em;width:3em;height:3em;border-top-right-radius:1em;border-bottom-right-radius:1em;
+let MenuButton= Styled.div `position:fixed;top:20%;margin-left:3.6em;width:3em;height:3em;border-top-right-radius:1em;border-bottom-right-radius:1em;
                             background-color:white;border:1px solid black;border-left:unset;padding:0.1em;padding-right:0.3em;`;
 
 class MenuBar extends React.Component {
