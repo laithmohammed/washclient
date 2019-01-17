@@ -88,11 +88,11 @@ class Selection extends React.Component {
     let clothes = localStorage.getItem('clothes') || '[]';
     clothes = JSON.parse(clothes);
     let data  = this.state.orderData;
-    data.map((items,i)=>{
+    data.map((items,ii)=>{
       clothes.map((cloth,i)=>{
         if(items.data.Name.indexOf(cloth.itemName) > -1){
           let index = items.data.Name.indexOf(cloth.itemName);
-          data.data.Quantity[index] = cloth.itemQuan;
+          data[ii].data.Quantity[index] = cloth.itemQuan;
         }
         return ' '
       })
