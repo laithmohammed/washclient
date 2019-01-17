@@ -44,7 +44,7 @@ class Login extends React.Component {
   }
   setData(e){
     switch (e.target.name) {
-      case 'username'  : this.setState({username   : e.target.value.toSting().toLowerCase()});this.fetchData('checkUniqUsername',e.target.value.toSting().toLowerCase(),0);break;
+      case 'username'  : let vAL = e.target.value.toLowerCase();this.setState({username   : vAL});this.fetchData('checkUniqUsername',vAL,0);break;
       case 'phone'     : this.setState({phone      : e.target.value});this.fetchData('checkUniqPhone',e.target.value,1);break;
       case 'email'     : this.setState({email      : e.target.value});this.fetchData('checkUniqEmail',e.target.value,2);break;
       case 'password'  : this.setState({password   : e.target.value});break;
@@ -54,7 +54,7 @@ class Login extends React.Component {
   }
   setUniq(path,val){ 
     // let Key = this.state.permitKey + val;this.setState({permitKey : Key });console.log(this.state.permitKey)
-    if(path === 'checkUniqUsername'){ this.setState({userUniq : val.toSting().toLowerCase() }); }
+    if(path === 'checkUniqUsername'){ let vAL = val.toLowerCase();this.setState({userUniq : vAL }); }
     if(path === 'checkUniqPhone'){ this.setState({phoneUniq : val }); }
     if(path === 'checkUniqEmail'){ this.setState({emailUniq : val }); }
     // permitKey++;
