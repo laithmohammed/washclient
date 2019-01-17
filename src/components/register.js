@@ -44,7 +44,7 @@ class Login extends React.Component {
   }
   setData(e){
     switch (e.target.name) {
-      case 'username'  : this.setState({username   : e.target.value.toLowerCase()});this.fetchData('checkUniqUsername',e.target.value.toLowerCase(),0);break;
+      case 'username'  : this.setState({username   : e.target.value.toSting().toLowerCase()});this.fetchData('checkUniqUsername',e.target.value.toSting().toLowerCase(),0);break;
       case 'phone'     : this.setState({phone      : e.target.value});this.fetchData('checkUniqPhone',e.target.value,1);break;
       case 'email'     : this.setState({email      : e.target.value});this.fetchData('checkUniqEmail',e.target.value,2);break;
       case 'password'  : this.setState({password   : e.target.value});break;
@@ -54,7 +54,7 @@ class Login extends React.Component {
   }
   setUniq(path,val){ 
     // let Key = this.state.permitKey + val;this.setState({permitKey : Key });console.log(this.state.permitKey)
-    if(path === 'checkUniqUsername'){ this.setState({userUniq : val.toLowerCase() }); }
+    if(path === 'checkUniqUsername'){ this.setState({userUniq : val.toSting().toLowerCase() }); }
     if(path === 'checkUniqPhone'){ this.setState({phoneUniq : val }); }
     if(path === 'checkUniqEmail'){ this.setState({emailUniq : val }); }
     // permitKey++;
@@ -105,7 +105,7 @@ class Login extends React.Component {
                        title='min 3 characters and max 22 characters with lowercase characters' defaultValue={this.state.username} onKeyUp={this.setData.bind(this)} />
             <Span>Phone</Span>
             <InputText type='text' name='phone' pattern='[0-9]{10}'
-                       title='Ex : 07705320672' defaultValue={this.state.phone} onKeyUp={this.setData.bind(this)} />
+                       title='Ex : 7705320672, without zero at first' defaultValue={this.state.phone} onKeyUp={this.setData.bind(this)} />
             <Span>Email</Span>
             <InputText type='email' name='email' 
                        title='Ex : example@example.com' defaultValue={this.state.email} onKeyUp={this.setData.bind(this)} />
