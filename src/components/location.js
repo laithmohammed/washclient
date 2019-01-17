@@ -197,7 +197,7 @@ class GeoLocation extends React.Component {
       localStorage.setItem('deliveryDate'   ,JSON.stringify(this.state.deliveryDate));
       localStorage.setItem('deliveryLoc'    ,JSON.stringify(this.state.deliveryLoc));
       localStorage.setItem('deliveryAddress',this.state.deliveryAddress);
-      this.setState({defaultForm : 2 ,headerIcon : [1,1,1]});
+      this.setState({defaultForm : 2 ,headerIcon : [1,1,1],zoom : 12});
 
     }
     if(index === 3){ //submit form with javascript
